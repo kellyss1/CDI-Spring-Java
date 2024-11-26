@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/cdi_ejemplo01" />
             <option value="$PROJECT_DIR$/cdi_ejemplo02" />
             <option value="$PROJECT_DIR$/cdi_transaccion_bancaria" />
+            <option value="$PROJECT_DIR$/cdi_transaccion_bancaria_tx" />
             <option value="$PROJECT_DIR$/spring_transaccion_bancaria" />
           </set>
         </option>
