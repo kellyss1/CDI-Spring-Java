@@ -16,7 +16,7 @@ public class Main {
         Bean<?> bean = beanManager.getBeans(Operaciones.class, MiBean.Literal.INSTANCE)
                 .iterator().next();
         var context = beanManager.createCreationalContext(bean);
-        Operaciones servicio = (Operaciones )beanManager.getReference(bean, Operaciones.class, null);
+        Operaciones servicio = (Operaciones )beanManager.getReference(bean, Operaciones.class, context);
         int ret = servicio.sumar( 5, 9 );
         System.out.printf( "Respuesta: %d\n", ret );
     }

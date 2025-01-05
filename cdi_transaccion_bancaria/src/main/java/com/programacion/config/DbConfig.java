@@ -19,7 +19,6 @@ public class DbConfig {
         config.setUsername("sa");
         config.setPassword("");
 
-        DataSource ds = new HikariDataSource(config);
-        return ds;
+        return new HikariDataSource(config);
     }
 }
