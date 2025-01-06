@@ -4,7 +4,6 @@
              version="3.0">
 
     <persistence-unit name="books-db">
-
         <class>com.programacion.db.Author</class>
 
         <properties>
@@ -13,6 +12,16 @@
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
         </properties>
+    </persistence-unit>
 
+    <!-- Unidad de persistencia para PostgreSQL -->
+    <persistence-unit name="books-db-postgres">
+        <class>com.programacion.db.Author</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/books_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value="yourpassword"/>
+        </properties>
     </persistence-unit>
 </persistence>

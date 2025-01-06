@@ -15,4 +15,6 @@ dependencies {
     implementation("org.hibernate:hibernate-community-dialects:6.6.4.Final")
 
     implementation("org.xerial:sqlite-jdbc:3.47.0.0")
+
+    implementation("org.postgresql:postgresql:42.6.0")
 }
