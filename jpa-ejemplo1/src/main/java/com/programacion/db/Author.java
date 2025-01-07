@@ -1,8 +1,6 @@
 package com.programacion.db;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -12,5 +10,8 @@ public class Author {
     @Id
     private Integer id;
     private String nombre;
+
+    @Basic(fetch = FetchType.LAZY) // HINT: Por defecto es EAGER
     private String apellido;
+
 }
