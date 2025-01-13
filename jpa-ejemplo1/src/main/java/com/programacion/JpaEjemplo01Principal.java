@@ -11,7 +11,7 @@ import java.util.List;
 
 public class JpaEjemplo01Principal {
 
-//    public static void main(String[] args) {
+    public static void main1(String[] args) {
 ////        // Creamos el EntityManagerFactory y el EntityManager
 ////        EntityManagerFactory emf = Persistence.createEntityManagerFactory("books-db");
 ////        EntityManager em = emf.createEntityManager();
@@ -49,9 +49,9 @@ public class JpaEjemplo01Principal {
 //        emPostgres.close();
 //        emfPostgres.close();
 //
-//    }
+    }
 
-    public static void main1(String[] args) {
+    public static void main2(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("books-db");
         EntityManager em = emf.createEntityManager();
@@ -97,7 +97,7 @@ public class JpaEjemplo01Principal {
 //                .forEach(System.out::println);
     }
 
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("books-db");
         EntityManager em = emf.createEntityManager();
@@ -123,5 +123,47 @@ public class JpaEjemplo01Principal {
                 .map(s -> "ISBN: " + ((Book)s[0]).getIsbn() + ", Titulo: " + ((Book)s[0]).getTitulo() + ", Apellido: " + ((Author)s[1]).getApellido())
                 .forEach(System.out::println);
 
+    }
+
+    public static void main4(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("books-db");
+        EntityManager em = emf.createEntityManager();
+
+        var autor = em.find(Author.class,1);
+
+        System.out.println("Author ------");
+        System.out.println(autor.getNombreCompleto());
+        System.out.println();
+
+        System.out.println("Libros del autor: "+ autor.getApellido());
+        autor.getLibros().forEach(System.out::println);
+
+
+
+
+    }
+
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("books-db");
+        EntityManager em = emf.createEntityManager();
+
+//        for(int i = 0; i < 10; i++){ //Hace una sola vez la consulta, no sobrecarga la DB
+//            var autor = em.find(Author.class,1);
+//            autor.calcularNombreCompleto();
+//            System.out.println(autor);
+//        }
+
+        var autor = em.find(Author.class,1);
+        var autor2 = em.find(Author.class,2);
+
+        em.getTransaction().begin(); //Necesario para que se actualice en la base de datos
+        autor.setNombre("Nombre 1");
+        //autor.setNombre("Nombre 11"); solo hace el update del ultimo set
+
+        autor2.setNombre("Nombre 2"); //Detecta que ya tiene el mismo nombre y no lo sube
+        em.getTransaction().commit();
+
+        System.out.println(autor2);
     }
 }
