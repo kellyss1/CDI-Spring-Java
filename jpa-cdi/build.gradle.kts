@@ -22,6 +22,14 @@ dependencies {
     //Base de datos: SQLite
     implementation("org.xerial:sqlite-jdbc:3.47.0.0")
 
+    //DeltaSpike
+    implementation("org.apache.deltaspike.modules:deltaspike-jpa-module-api:2.0.0")
+    runtimeOnly("org.apache.deltaspike.modules:deltaspike-jpa-module-impl:2.0.0")
+
+    implementation("org.apache.deltaspike.modules:deltaspike-data-module-api:2.0.0")
+    runtimeOnly("org.apache.deltaspike.modules:deltaspike-data-module-impl:2.0.0")
+
+
 }
 
 sourceSets {

@@ -8,6 +8,7 @@
         <class>programacion.db.Book</class>
 
         <properties>
+            <!--
             <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:books.db"/>
             <property name="jakarta.persistence.jdbc.user" value="sa"/>
@@ -15,6 +16,10 @@
 
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
             <property name="jakarta.persistence.sql-load-script-source" value="import.sql"/>
+            -->
+
+            <property name="jakarta.persistence.schema-generation.scripts.action" value="create"/>
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="schema-books-db.sql"/>
 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
